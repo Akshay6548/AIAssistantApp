@@ -4,6 +4,7 @@ import streamlit as st
 
 # Access Firebase credentials as a dictionary
 firebase_creds = dict(st.secrets["firebase"])
+print(firebase_creds)
 
 from firebase_admin import credentials, firestore
 

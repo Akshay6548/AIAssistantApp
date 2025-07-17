@@ -15,14 +15,17 @@ db = firestore.client()
 gemini_key = st.secrets["gemini_api_key"]
 
 
-genai.configure(gemini_key)
+genai.configure(api_key=gemini_key)
 model = genai.GenerativeModel("gemini-pro")
+for m in genai.list_models():
+    print(m.name)
+
 
 def get_response(prompt):
     response = model.generate_content(prompt)
-    return response.text
-st.title("Personal AI Assistant")
+    return response.candidates[0].content.parts[0].text
 
+st.title("Personal AI Assistant")
 user_input = st.text_input("Ask me anything:")
 if user_input:
     response = get_response(user_input)

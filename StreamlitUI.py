@@ -11,9 +11,6 @@ cred = credentials.Certificate(firebase_creds)
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
-
-
-
 # Access root-level secrets
 gemini_key = st.secrets["gemini_api_key"]
 

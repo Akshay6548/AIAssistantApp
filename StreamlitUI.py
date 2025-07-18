@@ -40,8 +40,8 @@ if st.button("Submit") and user_input:
 
     # Save to Firestore
     
-	db.collection("chat").add({
-    		"question": user_input,
-    		"answer": response,
-    		"timestamp": datetime.datetime.utcnow()
-	})
+    db.collection("chat").add({
+        "question": user_input,
+    	"answer": response,
+    	"timestamp": datetime.datetime.utcnow()
+    })

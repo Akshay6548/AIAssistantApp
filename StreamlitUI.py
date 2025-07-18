@@ -19,7 +19,7 @@ gemini_key = st.secrets["gemini_api_key"]
 
 
 genai.configure(api_key=gemini_key)
-model = genai.GenerativeModel("gemini-pro")
+model = genai.GenerativeModel("gemini-2.5-pro")
 for m in genai.list_models():
     print(m.name)
 

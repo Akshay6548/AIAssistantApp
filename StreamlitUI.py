@@ -10,8 +10,8 @@ print(firebase_creds)
 from firebase_admin import credentials, firestore
 
 cred = credentials.Certificate(firebase_creds)
-#if not firebase_admin._apps:
-#    firebase_admin.initialize_app(cred)
+if not firebase_admin._apps:
+    firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 # Access root-level secrets
@@ -19,7 +19,7 @@ gemini_key = st.secrets["gemini_api_key"]
 
 
 genai.configure(api_key=gemini_key)
-model = genai.GenerativeModel("gemini-pro")
+model = genai.GenerativeModel("gemini-2.5-pro")
 for m in genai.list_models():
     print(m.name)
 
